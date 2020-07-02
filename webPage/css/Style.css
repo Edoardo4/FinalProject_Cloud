@@ -1,0 +1,112 @@
+
+body{
+    background-color: darkgrey;
+}
+
+.pageContainer{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
+}
+
+.imageContainer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    height: auto;
+    width: 35rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: inline-block;
+    list-style-type: none;
+    vertical-align: middle;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+label {
+    border: 1px solid;
+    border-color: transparent;
+    padding: 10px;
+    display: block;
+    position: relative;
+    margin: 10px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+label::before {
+    background-color: white;
+    color: white;
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    border: 1px solid grey;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    transition-duration: 0.4s;
+    transform: scale(0);
+}
+
+.item {
+    width: 200px;
+    height: 300px;
+    float: left;
+    margin: 3px;
+    padding: 3px;
+}
+
+label img {
+    box-shadow: 0 0 3px #333;
+    max-width: 100%;
+    max-height: 100%;
+    transition-duration: 0.2s;
+    transform-origin: 50% 50%;
+}
+
+:checked+label {
+    border-color: #ddd;
+}
+
+:checked+label::before {
+    content: "✓";
+    background-color: grey;
+    transform: scale(1);
+}
+
+:checked+label img {
+    transform: scale(0.9);
+    box-shadow: 0 0 6px #333;
+    z-index: -1;
+}
+
+.map {
+    height: 400px;
+    width: 1000px;
+    display: inline-block;
+}
+
+.popup {
+    border-radius: 5px;
+    border: 1px solid grey;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2px;
+}

@@ -1,0 +1,48 @@
+
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/FinalProject_Cloud;
+
+        index /webPage/homepage.php;
+
+        server_name _;
+
+        client_max_body_size 50M;
+
+        location ^~ /api/ {
+                proxy_pass  http://127.0.0.1:7070/;
+        }
+
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+
+                fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+        }
+}
+
+server {
+        listen 7070;
+        listen [::]:7070;
+
+
+        server_name _;
+
+        location = /favicon.ico {
+                access_log off;
+                log_not_found off;
+        }
+
+        location / {
+                include uwsgi_params;
+                uwsgi_pass unix:/home/ubuntu/Python_Api/route.sock;
+        }
+}
+

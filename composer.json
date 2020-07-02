@@ -1,0 +1,16 @@
+{
+  
+  "require": {
+    "microsoft/azure-storage-blob": "*",
+    "microsoft/azure-storage-table": "*",
+    "microsoft/azure-storage-queue": "*",
+    "microsoft/azure-storage-file": "*"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "MyClasses\\":"script/"
+    }
+  }
+
+}
